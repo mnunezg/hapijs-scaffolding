@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "baseUrl": "src",
+    "outDir": "dist",
+    "typeRoots": ["node_modules/@types"],
     "allowJs": false,
     "target": "es6",
     "sourceMap": true,
     "module": "commonjs",
     "moduleResolution": "node",
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@env/*": ["environment/*"]
+    }
   },
   "include": [
     "./src/**/*",
