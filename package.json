@@ -1,0 +1,20 @@
+{
+  "name": "hapijs-scaffolding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -e ts --exec npm run build:run",
+    "build": "tsc",
+    "build:run": "npm run build && node ./dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.23",
+    "nodemon": "^2.0.4"
+  }
+}
