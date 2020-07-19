@@ -2,24 +2,42 @@
   "name": "hapijs-scaffolding",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "dev": "nodemon -e ts --exec npm run build:run",
+    "dev": "nodemon -e ts --exec npm run build:run -r source-map-support/register dist/pathToJson.js",
     "build": "tsc",
-    "build:run": "npm run build && node ./dist/index.js"
+    "build:run": "npm run build && node ./dist/server.js -r source-map-support/register dist/pathToJson.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^19.2.0"
+    "@hapi/boom": "^9.1.0",
+    "@hapi/hapi": "^19.2.0",
+    "@hapi/inert": "^6.0.1",
+    "@hapi/vision": "^6.0.0",
+    "bcrypt": "^5.0.0",
+    "joi": "^17.1.1",
+    "mongoose": "^5.9.25",
+    "source-map-support": "^0.5.19"
   },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/joi": "^14.3.4",
+    "@types/hapi__boom": "^9.0.1",
     "@types/hapi__hapi": "^19.0.3",
+    "@types/hapi__inert": "^5.2.0",
+    "@types/hapi__joi": "^17.1.4",
+    "@types/hapi__vision": "^5.5.1",
+    "@types/mongoose": "^5.7.32",
     "@types/node": "^14.0.23",
+    "hapi-swagger": "^13.0.2",
     "module-alias": "^2.2.2",
     "nodemon": "^2.0.4"
   },
   "_moduleAliases": {
-    "@env": "dist/environment"
+    "@env": "dist/environment",
+    "@controllers": "dist/controllers",
+    "@models": "dist/models",
+    "@routes": "dist/routes"
   }
 }

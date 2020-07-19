@@ -10,7 +10,10 @@
     "moduleResolution": "node",
     "lib": ["es2018", "dom"],
     "paths": {
-      "@env/*": ["environment/*"]
+      "@env/*": ["environment/*"],
+      "@controllers/*": ["controllers/*"],
+      "@models/*": ["models/*"],
+      "@routes/*": ["routes/*"]
     }
   },
   "include": [
