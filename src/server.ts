@@ -1,13 +1,13 @@
-require('module-alias/register');
 require('source-map-support').install();
 
+import 'module-alias/register';
 import { Server } from '@hapi/hapi';
 import * as Inert from '@hapi/inert';
 import * as Vision from '@hapi/vision';
 import * as HapiSwagger from 'hapi-swagger';
 import * as mongoose from 'mongoose';
 import { ENV } from '@env/des';
-import { Routes } from '@routes/routes';
+import { routes } from '@routes/routes';
 import { jwtValidation } from '@validators/jwt.validation';
 import * as HapiJWT from 'hapi-auth-jwt2';
 
@@ -34,7 +34,7 @@ const init = async () => {
     },
     security: [{ jwt: [] }],
     info: {
-      title: 'Test API Documentation',
+      title: 'HapiJS Scaffolding',
       version: ENV.VERSION,
     },
   };
@@ -48,7 +48,7 @@ const init = async () => {
     },
   ]);
 
-  server.route(Routes);
+  server.route(routes);
 
   server.route({
     method: '*',
@@ -71,6 +71,11 @@ const init = async () => {
 process.on('unhandledRejection', (err) => {
   console.log(err);
   process.exit(1);
+});
+
+process.on('SIGINT', () => {
+  console.log('Bye bye!');
+  process.exit();
 });
 
 init();
