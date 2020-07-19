@@ -21,8 +21,12 @@
     "@hapi/hapi": "^19.2.0",
     "@hapi/inert": "^6.0.1",
     "@hapi/vision": "^6.0.0",
+    "@types/moment": "^2.13.0",
     "bcrypt": "^5.0.0",
+    "hapi-auth-jwt2": "^10.1.0",
     "joi": "^17.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
     "mongoose": "^5.9.25",
     "source-map-support": "^0.5.19"
   },
@@ -36,6 +40,7 @@
     "@types/hapi__joi": "^17.1.4",
     "@types/hapi__vision": "^5.5.1",
     "@types/joi": "^14.3.4",
+    "@types/jsonwebtoken": "^8.5.0",
     "@types/mongoose": "^5.7.32",
     "@types/node": "^14.0.23",
     "hapi-swagger": "^13.0.2",
@@ -49,6 +54,7 @@
     "@env": "dist/environment",
     "@controllers": "dist/controllers",
     "@models": "dist/models",
+    "@validators": "dist/validators",
     "@routes": "dist/routes"
   }
 }

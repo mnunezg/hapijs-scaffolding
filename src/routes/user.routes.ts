@@ -1,6 +1,12 @@
-import { ServerRoute } from "@hapi/hapi";
-import { createUser, getUsers, updateUser, deleteUser, getUser } from "@controllers/user.controller";
+import { ServerRoute } from '@hapi/hapi';
+import {
+  getUsers,
+  updateUser,
+  deleteUser,
+  getUser,
+} from '@controllers/user.controller';
 import * as Joi from '@hapi/joi';
+import { idValidator } from '@validators/id.validator';
 
 export const UserRoutes: ServerRoute[] = [
   {
@@ -8,65 +14,50 @@ export const UserRoutes: ServerRoute[] = [
     path: '/users',
     handler: getUsers,
     options: {
-      tags: ['api']
-    }
+      tags: ['api', 'Users'],
+    },
   },
   {
     method: 'GET',
     path: '/users/{id}',
     handler: getUser,
     options: {
-      tags: ['api'],
+      tags: ['api', 'Users'],
       validate: {
         params: Joi.object({
-          id: Joi.string().required()
-        })
-      }
-    }
-  },
-  {
-    method: 'POST',
-    path: '/users',
-    handler: createUser,
-    options: {
-      tags: ['api'],
-      validate: {
-        payload: Joi.object({
-          username: Joi.string().required(),
-          email: Joi.string().required(),
-          password: Joi.string().required()
-        })
-      }
-    }
+          id: Joi.string().required(),
+        }),
+      },
+    },
   },
   {
     method: 'PUT',
     path: '/users/{id}',
     handler: updateUser,
     options: {
-      tags: ['api'],
+      tags: ['api', 'Users'],
       validate: {
         params: Joi.object({
-          id: Joi.string().required()
+          id: Joi.string().required(),
         }),
         payload: Joi.object({
           username: Joi.string().required(),
-          email: Joi.string().required()
-        })
-      }
-    }
+          email: Joi.string().required(),
+        }),
+      },
+    },
   },
   {
     method: 'DELETE',
     path: '/users/{id}',
     handler: deleteUser,
     options: {
-      tags: ['api'],
+      tags: ['api', 'Users'],
       validate: {
         params: Joi.object({
-          id: Joi.string().required()
-        })
-      }
-    }
-  }
-]
+          id: Joi.custom(idValidator),
+        }),
+      },
+    },
+  },
+];

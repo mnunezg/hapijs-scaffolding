@@ -13,13 +13,10 @@
       "@env/*": ["environment/*"],
       "@controllers/*": ["controllers/*"],
       "@models/*": ["models/*"],
+      "@validators/*": ["validators/*"],
       "@routes/*": ["routes/*"]
     }
   },
-  "include": [
-    "./src/**/*",
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"]
 }
