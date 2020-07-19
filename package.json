@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@types/bcrypt": "^3.0.0",
     "@types/hapi__boom": "^9.0.1",
     "@types/hapi__hapi": "^19.0.3",
